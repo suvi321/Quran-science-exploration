@@ -11,8 +11,8 @@ class QuranScienceExplorerApp extends StatelessWidget {
     return MaterialApp(
       title: 'Quran Science Explorer',
       theme: ThemeData.dark(),
-      debugShowCheckedModeBanner: false,
       home: SplashScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -27,9 +27,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => HomePage()),
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => HomePage()),
       );
     });
   }
@@ -41,8 +40,43 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Center(
         child: Image.asset(
           'assets/icon/logo1.png',
-          width: 150,
-          height: 150,
+          width: 160,
+          height: 160,
+        ),
+      ),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        title: Text('Quran Science Explorer'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Welcome to Quran Science Explorer',
+              style: TextStyle(fontSize: 22, color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Ak\'s-Yasir',
+              style: TextStyle(fontSize: 18, color: Colors.greenAccent),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Crafted from Kashmir 🇮🇳',
+              style: TextStyle(fontSize: 14, color: Colors.grey),
+            ),
+          ],
         ),
       ),
     );
